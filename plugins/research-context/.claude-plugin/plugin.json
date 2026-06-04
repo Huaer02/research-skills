@@ -1,0 +1,7 @@
+{
+  "name": "research-context",
+  "description": "Provides the user's research direction, domain keywords, and related fields as context for other skills like paper-digest and research-survey.",
+  "author": {
+    "name": "huaer"
+  }
+}

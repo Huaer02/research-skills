@@ -1,0 +1,20 @@
+{
+  "name": "research-skills",
+  "version": "1.0.0",
+  "description": "Research productivity skills for Claude Code: paper-digest (intensive reading notes), research-survey (problem-driven field survey), and research-context (user research direction).",
+  "author": {
+    "name": "Huaer02",
+    "url": "https://github.com/Huaer02"
+  },
+  "homepage": "https://github.com/Huaer02/research-skills",
+  "repository": "https://github.com/Huaer02/research-skills",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "research",
+    "paper-reading",
+    "survey",
+    "literature-review",
+    "academic"
+  ]
+}

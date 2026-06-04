@@ -1,0 +1,7 @@
+{
+  "name": "paper-digest",
+  "description": "Deep-read research papers and produce self-contained structured Markdown notes focused on the paper's story, concrete technical method, module-level design, formulas, experiments, limitations, and research inspiration.",
+  "author": {
+    "name": "huaer"
+  }
+}
