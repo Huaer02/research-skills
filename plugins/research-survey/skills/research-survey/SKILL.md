@@ -41,12 +41,32 @@ Choose effort level from the user's wording or explicitly stated preference:
 
 **Search Strategy (ordered by reliability):**
 
-1. **Anchor papers:** Find 2-3 seminal/SOTA papers via web search, arXiv, or user input
-2. **Forward/backward expansion:** From anchor papers, trace citations and cited-by
-3. **Keyword variants:** Search multiple keyword formulations of the same concept
-4. **Benchmark/dataset pages:** Find standard benchmarks and check leaderboards
-5. **Code repositories:** Check papers with code (paperswithcode.com, GitHub)
-6. **Recent work:** Explicitly search for papers from the last 12 months
+1. **Anchor papers:** Find 2-3 seminal/SOTA papers via `/arxiv` or user input
+2. **Forward/backward expansion:** From anchor papers, trace citations via `/semantic-scholar`
+3. **Keyword variants:** Search multiple formulations via `/openalex` and `/research-lit`
+4. **Progressive reading:** Use `/deepxiv` for layered access (search→abstract→section)
+5. **Benchmark/dataset pages:** Find standard benchmarks and check leaderboards
+6. **Code repositories:** Check papers with code (paperswithcode.com, GitHub)
+7. **Recent work:** Use `/arxiv` explicitly for papers from the last 12 months
+
+**Literature Search Skills (from ARIS, use as needed):**
+
+| Skill | When to use |
+|-------|-------------|
+| `/arxiv` | Preprint search, PDF download, latest unrefereed work |
+| `/semantic-scholar` | Published venue papers (IEEE, ACM, Springer), citation counts |
+| `/openalex` | Broad open academic metadata, citation graphs |
+| `/deepxiv` | Progressive section-level reading without loading full papers |
+| `/alphaxiv` | Quick LLM-optimized summary of a single paper |
+| `/research-lit` | Multi-source aggregated search (combines multiple sources) |
+| `/exa-search` | AI web search beyond academic DBs (requires Exa key) |
+
+**Search execution order for standard effort:**
+1. `/arxiv "topic"` → get recent preprints (top 10-15)
+2. `/semantic-scholar "topic"` → get published venue papers (top 10)
+3. Pick 2-3 anchors → `/deepxiv` for progressive reading
+4. Check anchors' references → expand coverage
+5. `/openalex "topic"` → fill gaps in coverage
 
 **For each paper, record:**
 - Title, authors, venue, year
@@ -59,7 +79,7 @@ Choose effort level from the user's wording or explicitly stated preference:
 
 **Anti-Hallucination Rules:**
 - NEVER fabricate paper titles, authors, venues, or results
-- If a paper cannot be verified via web search, mark it as `[未验证]`
+- If a paper cannot be verified via search skills, mark it as `[未验证]`
 - Prefer citing papers you can retrieve metadata for (title, venue, year confirmed)
 - When citing specific numbers or claims, note the source paper explicitly
 - If you cannot find enough papers, say so rather than padding with uncertain references
