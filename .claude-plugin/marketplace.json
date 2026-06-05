@@ -1,0 +1,32 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "research-skills",
+  "description": "Research productivity skills for Claude Code: paper-digest, research-survey, and research-context.",
+  "owner": {
+    "name": "Huaer02",
+    "url": "https://github.com/Huaer02"
+  },
+  "plugins": [
+    {
+      "name": "paper-digest",
+      "description": "Deep-read research papers and produce self-contained structured Markdown notes focused on the paper's story, concrete technical method, module-level design, formulas, experiments, limitations, and research inspiration.",
+      "author": { "name": "huaer" },
+      "category": "research",
+      "source": "./plugins/paper-digest"
+    },
+    {
+      "name": "research-survey",
+      "description": "Build rigorous, problem-driven research surveys for a specific research direction. Supports effort levels (lite/standard/deep) and anti-hallucination verification.",
+      "author": { "name": "huaer" },
+      "category": "research",
+      "source": "./plugins/research-survey"
+    },
+    {
+      "name": "research-context",
+      "description": "Provides the user's research direction, domain keywords, and related fields as shared context for other skills like paper-digest and research-survey.",
+      "author": { "name": "huaer" },
+      "category": "research",
+      "source": "./plugins/research-context"
+    }
+  ]
+}
