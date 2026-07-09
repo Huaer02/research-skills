@@ -81,7 +81,7 @@ Use asymmetric detail: method details should be rich enough to understand the me
 
 - For normal paper-reading responses, output regular Markdown directly. Do **not** wrap the whole note in a fenced Markdown code block.
 - Use fenced code blocks only for code snippets or when the user explicitly asks for a copyable Markdown template/source.
-- All mathematical formulas must use LaTeX math delimiters. Use `\( ... \)` for inline formulas and `$$ ... $$` for display formulas. Do not format equations with plain text, backticks, or code fences unless the user explicitly asks for source code or pseudo-code.
+- All mathematical formulas must use LaTeX math delimiters. Use `$ ... $` for inline formulas and `$$ ... $$` for display formulas. Do not format equations with plain text, backticks, or code fences unless the user explicitly asks for source code or pseudo-code.
 - For non-local papers provided as URLs, arXiv IDs, DOIs, titles, or remote PDF links, Full paper note mode may output the complete note directly in chat as regular Markdown, without a fenced Markdown code block. The structure must still follow the template.
 - For local paper files, such as local PDFs, extracted text files, screenshots, or documents provided by filesystem path or attached local context, Full paper note mode must write a local `.md` note file using the template below. Then provide a concise preview and the absolute path to the generated Markdown file. Do not only answer in chat for local-file full paper notes.
 - In Full paper note mode, do not omit or merge template sections to make the answer shorter unless the user explicitly requests a shorter note.
