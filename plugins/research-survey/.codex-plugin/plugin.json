@@ -1,0 +1,25 @@
+{
+  "name": "research-survey",
+  "version": "0.1.0",
+  "description": "Build rigorous, problem-driven research surveys and turn evidence into candidate research ideas through reusable research workspace workflows.",
+  "author": {
+    "name": "Huaer02",
+    "url": "https://github.com/Huaer02"
+  },
+  "repository": "https://github.com/Huaer02/research-skills",
+  "keywords": ["research", "survey", "literature", "research-ideas"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Research Survey",
+    "shortDescription": "Build problem-driven surveys and research ideas",
+    "longDescription": "Map a research direction from concrete problems and challenges to method families, evidence-backed gaps, candidate ideas, and next actions.",
+    "developerName": "Huaer02",
+    "category": "Research",
+    "capabilities": ["Read", "Write", "Research"],
+    "defaultPrompt": [
+      "调研这个具体研究方向并识别关键问题",
+      "比较方法族、技术挑战和证据支持",
+      "基于调研结果提出候选研究想法"
+    ]
+  }
+}

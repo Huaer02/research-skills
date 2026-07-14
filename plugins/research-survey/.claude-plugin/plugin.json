@@ -1,6 +1,6 @@
 {
   "name": "research-survey",
-  "description": "Build rigorous, problem-driven research surveys for a specific research direction. Use when the user asks to survey a field, map related work, identify concrete research problems, analyze technical challenges, compare innovations, find gaps, design \"what we should do next\", write survey notes, build a literature review, or connect a direction to their own research. Especially useful when the task needs web research, arXiv/Semantic Scholar/Google Scholar style discovery, auto research agents, domain research skills, or the paper-reading skill to deep-read representative papers.",
+  "description": "Build rigorous, problem-driven research surveys and turn evidence into candidate research ideas for a specific research direction. Use when the user asks to survey a field, map related work, identify concrete research problems, analyze technical challenges, compare innovations, find gaps, design \"what we should do next\", write survey notes, build a literature review, or connect a direction to their own research. Especially useful when the task needs web research, arXiv/Semantic Scholar/Google Scholar style discovery, auto research agents, domain research skills, or the paper-reading skill to deep-read representative papers.",
   "author": {
     "name": "huaer"
   },

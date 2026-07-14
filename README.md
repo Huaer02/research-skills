@@ -51,6 +51,26 @@ git clone https://github.com/Huaer02/research-skills.git ~/.claude/plugins/resea
 }
 ```
 
+### 方式三：作为 Codex Plugin 从远端仓库安装
+
+Codex 使用仓库内的 `.agents/plugins/marketplace.json` 发现三个 plugin；每个 plugin 内的 `skills/` 与 Claude Code 共用同一份 `SKILL.md`。
+
+```bash
+codex plugin marketplace add Huaer02/research-skills --ref main
+codex plugin add paper-digest@research-skills
+codex plugin add research-survey@research-skills
+codex plugin add research-context@research-skills
+```
+
+更新远端仓库后刷新 marketplace，再重新安装需要更新的 plugin：
+
+```bash
+codex plugin marketplace upgrade research-skills
+codex plugin add research-survey@research-skills
+```
+
+其中 `research-survey` plugin 包含 `research-survey` 和 `research-idea-discovery` 两个 skill。
+
 ## 使用
 
 ```

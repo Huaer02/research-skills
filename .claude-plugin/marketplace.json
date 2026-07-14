@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "research-skills",
-  "description": "Research productivity skills for Claude Code: paper-digest, research-survey, and research-context.",
+  "description": "Research productivity skills for Claude Code: paper-digest, research-survey, research-idea-discovery, and research-context.",
   "owner": {
     "name": "Huaer02",
     "url": "https://github.com/Huaer02"
@@ -16,7 +16,7 @@
     },
     {
       "name": "research-survey",
-      "description": "Build rigorous, problem-driven research surveys for a specific research direction. Supports effort levels (lite/standard/deep) and anti-hallucination verification.",
+      "description": "Build rigorous, problem-driven research surveys and turn evidence into candidate research ideas. Supports effort levels (lite/standard/deep) and anti-hallucination verification.",
       "author": { "name": "huaer" },
       "category": "research",
       "source": "./plugins/research-survey"

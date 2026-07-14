@@ -1,0 +1,44 @@
+{
+  "name": "research-skills",
+  "interface": {
+    "displayName": "Research Skills"
+  },
+  "plugins": [
+    {
+      "name": "paper-digest",
+      "source": {
+        "source": "local",
+        "path": "./plugins/paper-digest"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Research"
+    },
+    {
+      "name": "research-survey",
+      "source": {
+        "source": "local",
+        "path": "./plugins/research-survey"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Research"
+    },
+    {
+      "name": "research-context",
+      "source": {
+        "source": "local",
+        "path": "./plugins/research-context"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Research"
+    }
+  ]
+}

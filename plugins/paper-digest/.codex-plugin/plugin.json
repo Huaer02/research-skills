@@ -1,0 +1,25 @@
+{
+  "name": "paper-digest",
+  "version": "0.1.0",
+  "description": "Deep-read research papers and produce self-contained structured Markdown notes focused on the paper's story, concrete technical method, module-level design, formulas, experiments, limitations, and research inspiration.",
+  "author": {
+    "name": "Huaer02",
+    "url": "https://github.com/Huaer02"
+  },
+  "repository": "https://github.com/Huaer02/research-skills",
+  "keywords": ["research", "paper", "literature", "academic"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Paper Digest",
+    "shortDescription": "Deep-read papers into structured research notes",
+    "longDescription": "Read research papers closely and produce structured notes covering the paper story, technical mechanism, experiments, limitations, and research inspiration.",
+    "developerName": "Huaer02",
+    "category": "Research",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "精读这篇论文并整理成结构化笔记",
+      "提取论文的方法、公式、实验和局限",
+      "分析这篇论文对我研究方向的启发"
+    ]
+  }
+}

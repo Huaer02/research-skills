@@ -1,0 +1,25 @@
+{
+  "name": "research-context",
+  "version": "0.1.0",
+  "description": "Provide the user's research directions, domain keywords, related fields, and background as shared context for research skills.",
+  "author": {
+    "name": "Huaer02",
+    "url": "https://github.com/Huaer02"
+  },
+  "repository": "https://github.com/Huaer02/research-skills",
+  "keywords": ["research", "context", "academic", "personalization"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Research Context",
+    "shortDescription": "Maintain shared research direction context",
+    "longDescription": "Maintain the user's current research directions and domain context so paper reading, surveys, and idea discovery can make grounded transfer suggestions.",
+    "developerName": "Huaer02",
+    "category": "Research",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "查看我当前的研究方向",
+      "更新我的研究方向和关键词",
+      "添加一个新的研究方向"
+    ]
+  }
+}
