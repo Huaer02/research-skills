@@ -69,6 +69,10 @@ research-topic/
 │   ├── problem_definition.md
 │   ├── research_questions.md
 │   └── terminology.md
+├── papers/
+│   ├── method_family_a/
+│   ├── method_family_b/
+│   └── benchmarks_evaluation/
 ├── literature/
 │   ├── registry/
 │   │   └── papers.jsonl
@@ -106,6 +110,7 @@ research-topic/
 | Path | Role |
 | --- | --- |
 | `00_scope/` | The stable definition of the field, research questions, terms, assumptions, and boundaries |
+| `papers/` | Local PDF mirror for core papers, grouped by method family or evidence role; usually untracked if PDFs are large |
 | `literature/registry/` | One canonical metadata record per paper; do not duplicate logical papers |
 | `literature/bibliography/` | Citation source of truth, usually BibTeX |
 | `literature/notes/` | Structured intensive-reading notes, grouped by method family or evidence role |
@@ -128,6 +133,7 @@ Minimum viable workspace:
 
 ```text
 00_scope/problem_definition.md
+papers/
 literature/registry/papers.jsonl
 literature/notes/
 literature/surveys/overall_survey.md
@@ -212,14 +218,68 @@ Recommended fields:
 - `topic_tags`
 - `evidence_role`: `anchor`, `baseline`, `survey`, `theory`, `benchmark`, `negative_result`, `idea_seed`
 - `note_path`
+- `pdf_path`
+- `pdf_status`: `downloaded`, `remote_only`, `unavailable`, `needs_access`
 - `bibtex_key`
 - `status`: `verified`, `preprint`, `unverified`, `excluded`
 
 Do not cite unverified papers as evidence. Mark them clearly and revisit later.
 
+### Phase 4.5: Download Core Paper PDFs
+
+Maintain a local PDF mirror for papers that are central to the survey.
+
+Download PDFs for:
+
+- **P0 anchor papers:** seminal papers, SOTA papers, and papers the survey argument depends on;
+- **P0 direct baselines:** papers that could make the candidate idea unnecessary;
+- **P1 benchmark/dataset papers:** papers needed to understand evaluation protocols;
+- **P1 idea-seed papers:** papers likely to inspire candidate ideas;
+- any paper selected for `paper-digest` full note mode, when a legal PDF is available.
+
+Save PDFs under:
+
+```text
+papers/<method-family-or-role>/<paper-id>.pdf
+```
+
+Recommended filename rules:
+
+- use the same stable `paper_id` as the registry;
+- avoid spaces and fragile punctuation;
+- keep duplicate versions only when they matter, e.g. arXiv vs camera-ready;
+- record the local path in the registry as `pdf_path`.
+
+Add or update these registry fields when a PDF is downloaded:
+
+```jsonl
+{"paper_id":"short-stable-id-2026","pdf_path":"papers/method_family/short-stable-id-2026.pdf","pdf_status":"downloaded","source_url":"https://..."}
+```
+
+If a PDF cannot be downloaded, set `pdf_status` to `remote_only`, `unavailable`, or `needs_access`, and keep the best stable URL.
+
+Do not treat local PDFs as citation truth. Citation metadata still comes from `literature/registry/papers.jsonl` and `literature/bibliography/references.bib`.
+
+### Local-PDF Readiness Gate
+
+Before using `paper-digest` or claiming a paper has been deeply read, check the registry and filesystem:
+
+1. Confirm that `pdf_status` is `downloaded`.
+2. Confirm that `pdf_path` points to a readable local PDF under the workspace.
+3. Use the local PDF as the primary reading source; use the paper URL only for metadata, supplementary material, code, or cross-checking.
+4. If the PDF is missing or inaccessible, do not fabricate a full note. Either download a legally accessible copy, mark the paper as `remote_only`/`needs_access`, or downgrade the output to an abstract/metadata note.
+
+For every paper selected for deep reading, make the artifact chain explicit:
+
+```text
+registry record -> local PDF -> paper-digest note -> evidence matrix
+```
+
+Do not save a paper note as if it were complete when only an abstract, webpage, or search snippet was available.
+
 ### Phase 5: Deeply Read Important Papers
 
-Use intensive paper notes for:
+Use intensive paper notes only after the Local-PDF Readiness Gate for:
 
 - anchor papers;
 - direct baselines;
@@ -382,8 +442,8 @@ Move rejected or paused ideas to `ideas/archived_ideas.md` with the reason. This
 
 Use this skill before, during, and after `research-survey`:
 
-1. **Before survey:** create `00_scope/`, set the problem boundary, prepare registry and note folders.
-2. **During survey:** save survey outputs, update registry, mark papers for deep reading.
+1. **Before survey:** create `00_scope/`, set the problem boundary, prepare registry, paper mirror, and note folders.
+2. **During survey:** save survey outputs, update registry, classify paper priority, and download P0/P1 PDFs before deep reading.
 3. **After survey:** convert gaps into evidence maps and candidate ideas.
 4. **Before next survey run:** feed existing scope, notes, and evidence maps back into `research-survey` so the next run is cumulative.
 
@@ -455,6 +515,8 @@ Before claiming the research workspace is useful, check:
 
 - [ ] Scope is narrow enough for meaningful paper selection.
 - [ ] Each paper has at most one canonical registry record.
+- [ ] P0/P1 core papers have local PDFs when legally available, with `pdf_path` recorded.
+- [ ] Every paper-digest full note passes the Local-PDF Readiness Gate.
 - [ ] Important papers have structured notes.
 - [ ] Survey is organized by problem and challenge, not paper order.
 - [ ] Evidence matrix links challenges to papers and remaining gaps.
@@ -467,7 +529,7 @@ Before claiming the research workspace is useful, check:
 
 | Anti-pattern | Fix |
 | --- | --- |
-| Dumping PDFs without registry records | Add every paper to `literature/registry/papers.jsonl` |
+| Dumping PDFs without registry records | Add every paper to `literature/registry/papers.jsonl` and record `pdf_path` for downloaded core PDFs |
 | Writing surveys as paper-by-paper summaries | Reorganize by problem, challenge, method family, and gap |
 | Treating one exciting paper as a research direction | Compare it against method families and baselines |
 | Letting notes become the final narrative | Keep notes factual; synthesize in surveys and evidence maps |
